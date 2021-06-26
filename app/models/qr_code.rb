@@ -1,6 +1,7 @@
 class QrCode < ApplicationRecord
   paginates_per 5
   after_create :generate_qr_code
+  belongs_to :user
   validates :url, presence: true
   validates :name, presence: true, length: { minimum: 3 }
 
