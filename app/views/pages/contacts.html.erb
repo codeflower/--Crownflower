@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="heading-wrapper">
+    <h1>Наши контакты</h1>
+  </div>
+</div>
+
+<div class="row">
+  <ul class="contacts-list d-flex flex-column flex-md-row justify-content-between">
+  
+    <% @contacts.each do |cont| %>
+      <li>
+      <%= image_tag( cont[:avatar] , { width: '100px' }) %><br>
+      <%= cont[:name_label] %><%= cont[:name] %><br> 
+      <%= cont[:email_label] %><%= mail_to cont[:email] %><br> 
+      <%= cont[:tel_label] %><%=  link_to cont[:tel], cont[:tel_link]  %>
+      
+      </li>
+    <% end %>
+
+  </ul>
+</div>
+
+<div class="row">
+  <div class="heading-wrapper">
+    <h2>Мы на карте</h2>
+  </div>
+</div>
+
+<div class="row">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2258.670020670475!2d28.6709427159216!3d55.52069778049189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c48557c5a8f60d%3A0x77e2f7cfb074c079!2z0YPQuy4g0J7Qu9C40LzQv9C40LnRgdC60LDRjywg0J3QvtCy0L7Qv9C-0LvQvtGG0Lo!5e0!3m2!1sru!2sby!4v1624438779874!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>

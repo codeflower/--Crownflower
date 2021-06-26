@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #cccccc;
+}
+
+li {
+  list-style: none;
+}
+.btn {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-close-position {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.height-vh {
+  min-height: 61vh;
+}
+
+/* = Liteboxes Styles = */
+
+.alert {
+  margin-top: 1rem;
+  box-shadow: 1px 1px 2px #222;
+  padding: 1.2rem 1.2rem;
+}
+
+/* = Tables Styles = */
+tr {
+  vertical-align: middle;
+}
+
+/* = Header = */
+.header-wrapper {
+  width: 100%;
+  background: #bbbbbb;
+}
+.header-wrapper .header-sitename {
+  text-align: center;
+  font-size: 2.5em;
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
+  margin: 20px 0 40px 0;
+}
+.padding-top {
+  padding-top: 20px;
+}
+
+/* == Main menu == */
+.nav-item{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.heading-wrapper {
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+.heading-description {
+  margin-bottom: 30px;
+  font-style: italic;
+}
+.text-description {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+.navbar-nav .active{
+  font-weight: bolder;
+}
+
+/* == Forms == */
+
+.field_with_errors input{
+  border: 1px solid red;
+}
+
+.form-group {
+  margin-bottom: 19px;
+  display: flex;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+}
+.form-control {
+  border-radius: 29px;
+}
+.form-check-label {
+  margin-left: 10px;
+}
+
+.btn {
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 2px 2px 4px #222;
+}
+
+.btn-reset {
+  background-color: coral;
+  border-color: chocolate;
+}
+.btn-reset:hover{
+  text-shadow: 0 0 1px black;
+  background-color: coral;
+  border-color: darkorange;
+  box-shadow: 2px 2px 2px #d2691e;
+}
+
+/* == Contacts Page == */
+
+
+.contacts-list li {
+  margin: 20px;
+}
+.contacts-list img{
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 4px #555;
+  
+}
+
+/* == Footer == */
+.footer {
+  background: #babababa;
+  padding: 20px 0 20px 0;
+  height: 70px;
+}
+

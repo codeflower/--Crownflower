@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Code Generator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=M+PLUS+Rounded+1c&family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <header>
+    <div class="header-wrapper padding-top">
+      <div class="container">
+
+        <div class="row justify-content-between ">
+          <div class="header-logo col"><a class="nav-link active" aria-current="page" href="<%= root_path %>"><%= image_tag("logo.png", { width: '100px' }) %></a></div>
+          <div class="col d-flex justify-content-end">
+            <ul class="navbar-nav">
+              
+             
+              <li><%= "Hey #{current_user.name}" if current_user %> </li>
+              <li><%= current_user.email if current_user %> </li>
+              
+              <% @users_link.each do |link_hash| %>
+                <li class="nav-item <%= "active" if current_page?(link_hash[:link_path]) %>">
+                  <%= link_to link_hash[:link_name], link_hash[:link_path], class: 'nav-link', method: link_hash[:link_method] %>
+                </li>
+              <% end %>
+
+              
+              
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="header-sitename">Супер генератор QR кода</div>
+          <nav class="navbar navbar-expand-lg navbar-light justify-content-start">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+                <ul class="navbar-nav">
+                  <% @menu_link.each do |link_hash| %>
+                    <li class="nav-item <%= "active" if current_page?(link_hash[:link_path]) %>">
+                      <%= link_to link_hash[:link_name], link_hash[:link_path], class: 'nav-link', method: link_hash[:link_method] %>
+                    </li>
+                  <% end %>
+
+                  <% if '' %>
+                    <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link'%></li>
+                  <% end %>
+
+
+                </ul>
+              </div>
+          </nav>
+          
+        </div>
+      </div> <!-- container -->
+    </div>
+  </header>
+
+  <div class="container height-vh">
+
+      <div class="row justify-content-center">
+        <div id="hide-elem" class="col-4 " >
+          <% flash.each do |type, message| %>
+            <% alert_class = case type
+                            when "notice" 
+                              "success"
+                            when "alert" 
+                              "danger"
+                            else 
+                              type
+                            end %>
+            <%= tag.div class: "hide-elem alert alert-#{alert_class}" do %>
+              <%= message %>
+              <button onclick="hideIt(event, 'none')" type="button" class="btn-close btn-close-position" aria-label="Close"></button>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    <%= yield %>
+  
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <span>Powered by Alex Ch</span>
+      </div>
+    </div>
+  </footer>
+
+  </body>
+</html>

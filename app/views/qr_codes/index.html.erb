@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="heading-wrapper">
+    <h1>Мои QR коды</h1>
+  </div>
+</div>
+<%= paginate @qr_codes %>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Предпросмотр</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Переходы</th>
+            <th scope="col">Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @qr_codes.each do |qr_code| %>
+          <tr>
+            <td><%= link_to image_tag(qr_code.image), url_for(qr_code.image), {target: 'blank'} %></td>
+            <td><%= link_to qr_code.name, url_for(qr_code.image), {target: 'blank'} %></td>
+            <td><%= qr_code.scans %></td>
+            <td><%= link_to "Редактировать", edit_qr_code_path(qr_code.id), class: 'btn btn-primary' %>
+
+            <%= link_to "Удалить", qr_code_path(qr_code.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
