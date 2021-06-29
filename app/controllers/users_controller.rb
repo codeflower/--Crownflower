@@ -6,15 +6,17 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    # @users = User.all
+    
+    if current_user.admin?
+      @users = User.all.page(params[:page])
+    else  
+      @users = current_user.users.page(params[:page])
+      #  @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
+    end
+    
   end
 
-  if current_user.admin?
-    @users = User.all.page(params[:page])
-  else  
-    @users = current_user.users.page(params[:page])
-    #  @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
-  end
 
   def show
     
