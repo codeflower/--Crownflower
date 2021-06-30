@@ -4,23 +4,11 @@
 
       <div class="row justify-content-between ">
         <div class="header-logo col"><a class="nav-link active" aria-current="page" href="<%= root_path %>"><%= image_tag("logo.png", { width: '100px' }) %></a></div>
-        <div class="col d-flex justify-content-end">
-          <ul class="navbar-nav">
-
-            <li><%= "Hey #{current_user.name}" if current_user %> </li>
-            <li><%= current_user.email if current_user %> </li>
-            
-            <% @users_link.each do |link_hash| %>
-              <li class="nav-item <%= "active" if current_page?(link_hash[:link_path]) %>">
-                <%= link_to link_hash[:link_name], link_hash[:link_path], class: 'nav-link', method: link_hash[:link_method] %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
       </div>
 
       <div class="row">
         <div class="header-sitename">Генератор QR кода</div>
+        
         <nav class="navbar navbar-expand-lg navbar-light justify-content-start">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -38,10 +26,21 @@
                 <% if '' %>
                   <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link'%></li>
                 <% end %>
-
-
               </ul>
+
+              <ul class="navbar-nav">
+                <li><%= "Hey #{current_user.name}" if current_user %> </li>
+                <li><%= current_user.email if current_user %> </li>
+                
+                <% @users_link.each do |link_hash| %>
+                  <li class="nav-item <%= "active" if current_page?(link_hash[:link_path]) %>">
+                    <%= link_to link_hash[:link_name], link_hash[:link_path], class: 'nav-link', method: link_hash[:link_method] %>
+                  </li>
+                <% end %>
+              </ul>
+
             </div>
+
         </nav>
         
       </div>

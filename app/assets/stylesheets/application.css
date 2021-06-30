@@ -19,7 +19,6 @@ body {
   padding: 0;
   background: #cccccc;
 }
-
 li {
   list-style: none;
 }
@@ -27,13 +26,21 @@ li {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-
+.btn-primary {
+    color: #fff;
+    background-color: #2AA9AD;
+    border-color: #2DB8BD;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #239094;
+    border-color: #0E5E61;
+}
 .btn-close-position {
     position: absolute;
     top: 5px;
     right: 5px;
 }
-
 .height-vh {
   min-height: 61vh;
 }
@@ -50,52 +57,16 @@ li {
 tr {
   vertical-align: middle;
 }
-
-/* = Header = */
-.header-wrapper {
-  width: 100%;
-  background: #bbbbbb;
-}
-.header-wrapper .header-sitename {
-  text-align: center;
-  font-size: 2.5em;
-  font-family: 'Jura', sans-serif;
-  font-weight: 700;
-  margin: 20px 0 40px 0;
-}
 .padding-top {
   padding-top: 20px;
 }
 
-/* == Main menu == */
-.nav-item{
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-.heading-wrapper {
-  text-align: center;
-  margin: 40px 0 20px 0;
-}
-.heading-description {
-  margin-bottom: 30px;
-  font-style: italic;
-}
-.text-description {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-}
-.navbar-nav .active{
-  font-weight: bolder;
-}
 
 /* == Forms == */
 
 .field_with_errors input{
   border: 1px solid red;
 }
-
 .form-group {
   margin-bottom: 19px;
   display: flex;
@@ -103,18 +74,16 @@ tr {
   font-weight: 400;
 }
 .form-control {
-  border-radius: 29px;
+  border-radius: 14px;
 }
 .form-check-label {
   margin-left: 10px;
 }
-
 .btn {
   color: #fff;
   border-radius: 14px;
   box-shadow: 2px 2px 4px #222;
 }
-
 .btn-reset {
   background-color: coral;
   border-color: chocolate;
@@ -128,21 +97,23 @@ tr {
 
 /* == Contacts Page == */
 
-
 .contacts-list li {
   margin: 20px;
+  font-size: 32px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
 }
-.contacts-list img{
-  border-radius: 50%;
+.contacts-list span {
+  margin-right: 20px;
+}
+.contacts-list img {
+  margin-right: 20px;
   margin-bottom: 10px;
-  box-shadow: 2px 2px 4px #555;
-  
+}
+.contacts-list a {
+  color: #0E5E61;
+  text-decoration: none;
 }
 
-/* == Footer == */
-.footer {
-  background: #babababa;
-  padding: 20px 0 20px 0;
-  height: 70px;
-}
+
 
