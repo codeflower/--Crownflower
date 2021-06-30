@@ -49,7 +49,6 @@ class QrCodesController < ApplicationController
 
   def destroy
     @qr_code.destroy
-
     redirect_to qr_codes_path   # , { notice: 'Qr Code was successfully delete'}
   end
 

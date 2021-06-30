@@ -1,13 +1,30 @@
-<% provide(:title, 'All users') %>
-<h1>Все пользователи</h1>
-<ul class="users">
-<% @users.each do |user| %>
-<li>
-<%#= gravatar_for user, size: 50 %>
-<%= link_to user.name, user %>
-<td><%= link_to "Редактировать", edit_user_path(user.id), class: 'btn btn-primary' %>
+<div class="row">
+  <div class="heading-wrapper">
+    <h1>Все пользователи</h1>
+  </div>
+</div>
 
-<%= link_to "Удалить", user_path(user.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
-</li>
-<% end %>
-</ul>
+<% provide(:title, 'All users') %>
+
+<div class="row justify-content-center">
+  <div class="col-10">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Имя</th>
+          <th scope="col">Действия</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user %></td>
+          <td><%= link_to "Редактировать", edit_user_path(user.id), class: 'btn btn-primary' %>
+          <%= link_to "Удалить", user_path(user.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
