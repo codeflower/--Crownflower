@@ -14,8 +14,10 @@ class QrCodesController < ApplicationController
   
   def index
     if current_user.admin?
+      @title = "Все"
       @qr_codes = QrCode.all.page(params[:page])
-    else  
+    else
+      @title = "Мои"
       @qr_codes = current_user.qr_codes.page(params[:page])
       #  @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
     end

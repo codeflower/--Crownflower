@@ -5,6 +5,9 @@
 <li>
 <%#= gravatar_for user, size: 50 %>
 <%= link_to user.name, user %>
+<td><%= link_to "Редактировать", edit_user_path(user.id), class: 'btn btn-primary' %>
+
+<%= link_to "Удалить", user_path(user.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
 </li>
 <% end %>
 </ul>
