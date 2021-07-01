@@ -21,7 +21,8 @@
         <tr>
           <td><%= link_to user.name, user %></td>
           <td><%= link_to "Редактировать", edit_user_path(user.id), class: 'btn btn-primary' %>
-          <%= link_to "Удалить", user_path(user.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
+              <%= link_to "Удалить",  user_path(user.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } if current_user.admin? %>
+          </td>
         </tr>
       <% end %>
       </tbody>

@@ -7,7 +7,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    # @users = User.all
+    
+      @title = "Все"
+      @users = User.all.page(params[:page])
+
+      # @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
+
   end
 
   def show
@@ -25,10 +31,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+   
   end
 
   def update
-
     if @user.update(user_params)
       redirect_to users_path, { notice: 'User was successfully update'}
     else

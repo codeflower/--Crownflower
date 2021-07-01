@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   default_url_options host: "finalnyi-proiekt-crownflower.rubycourse0121.repl.co/"
 
+  resources :qr_codes
+  resources :users
+
+  get '/contacts', to: 'pages#contacts', as: :contacts
+  get '/about', to: 'pages#about'
+
+  get '/login', to: 'sessions#new', as: :login
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: :logout
+
   root 'qr_codes#new'
 
   # get '/qr_codes', to: 'qr_codes#index', as: :qr_codes
@@ -10,18 +20,11 @@ Rails.application.routes.draw do
   # patch '/qr_codes/:id', to: 'qr_codes#update', as: :qr_code
   # delete '/qr_codes/:id', to: 'qr_codes#destroy'
 
-  resources :qr_codes
-  resources :users
-
-  get '/contacts', to: 'pages#contacts', as: :contacts
-  get '/about', to: 'pages#about'
 
   # get '/users/new', to: 'users#new', as: :new_user
   # post '/users', to: 'users#create', as: :users
 
-  get '/login', to: 'sessions#new', as: :login
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy', as: :logout
+
 
   # File: config/routes.rb
   
