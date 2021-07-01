@@ -44,27 +44,21 @@
         <div class="row">
           <div class="header-sitename">Генератор QR кода</div>
           <nav class="navbar navbar-expand-lg navbar-light justify-content-start">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-              <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
 
-                <ul class="navbar-nav">
-                  <% @menu_link.each do |link_hash| %>
-                    <li class="nav-item <%= "active" if current_page?(link_hash[:link_path]) %>">
-                      <%= link_to link_hash[:link_name], link_hash[:link_path], class: 'nav-link', method: link_hash[:link_method] %>
-                    </li>
-                  <% end %>
-
-
-
-                </ul>
-
-
-              </div>
+              <ul class="navbar-nav">
+                <% @menu_link.each do |link_hash| %>
+                  <li class="nav-item <%= "active" if current_page?(link_hash[:link_path]) %>">
+                    <%= link_to link_hash[:link_name], link_hash[:link_path], class: 'nav-link', method: link_hash[:link_method] %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </nav>
-          
         </div>
       </div> <!-- container -->
     </div>

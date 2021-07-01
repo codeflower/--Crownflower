@@ -6,23 +6,22 @@
 
 <div class="row justify-content-center">
   <div class="col-md-4">
-    <%= form_with model: @user do |f| %>
-
-
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <% if @user.errors.any? %>
-            <div id="error_explanation">
-              <h2> Внимание:</h2>
-              <ul>
-                <% @user.errors.each do |error| %>
-                  <li><%= error.full_message %></li>
-                <% end %>
-              </ul>
-            </div>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2> Внимание:</h2>
+        <ul class = "error-box">
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
           <% end %>
-        </div>
+        </ul>
       </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <%= form_with model: @user do |f| %>
 
       <div class="form-floating form-group">
         <%= f.text_field :name, { class: "form-control" } %>

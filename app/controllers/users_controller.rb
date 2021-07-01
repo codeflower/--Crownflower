@@ -8,11 +8,9 @@ class UsersController < ApplicationController
 
   def index
     # @users = User.all
-    
-      @title = "Все"
-      @users = User.all.page(params[:page])
-
-      # @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
+    @title = "Все"
+    @users = User.all.page(params[:page])
+    # @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
 
   end
 
@@ -20,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   def create
-  user = User.new(user_params)
-    if user.save
+    @user = User.new(user_params)
+    if @user.save
       auto_login(user)
       redirect_to qr_codes_path, notice: "Пользователь успешно создан"
     else
@@ -31,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-   
   end
 
   def update
@@ -47,12 +44,6 @@ class UsersController < ApplicationController
     redirect_to users_path   # , { notice: 'Qr Code was successfully delete'}
   end
 
-  private
-  
-  def fetch_user
-    @user = User.find_by(id: params[:id])
-  end
-
   def user_params
     params.require(:user).permit(
       :name,
@@ -61,4 +52,9 @@ class UsersController < ApplicationController
       :password_confirmation
     )
   end
+
+  def fetch_user
+    @user = User.find_by(id: params[:id])
+  end
+
 end

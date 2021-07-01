@@ -7,7 +7,7 @@ class QrCodesController < ApplicationController
 
   def show
     @qr_code = QrCode.find(params[:id])
-    @qr_code.scans = @qr_code.scans + 1
+    @qr_code.scans += 1
     @qr_code.save
     redirect_to @qr_code.url
   end

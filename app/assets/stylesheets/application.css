@@ -22,6 +22,12 @@ body {
 li {
   list-style: none;
 }
+.height-vh {
+  min-height: 61vh;
+}
+.main-bg {
+  background-color: #DBDBDB;
+}
 
 /* = Bootstrap Btns Restyling = */
 
@@ -36,7 +42,7 @@ li {
   background-color: coral;
   border-color: chocolate;
 }
-.btn-reset:hover{
+.btn-reset:hover {
   text-shadow: 0 0 1px black;
   background-color: coral;
   border-color: darkorange;
@@ -58,22 +64,22 @@ li {
     right: 5px;
 }
 
-.height-vh {
-  min-height: 61vh;
-}
-.main-bg {
-  background-color: #DBDBDB;
-}
-
-/* = Liteboxes Styles = */
+/* = Messages Styles = */
 
 .alert {
   margin-top: 1rem;
   box-shadow: 1px 1px 2px #222;
   padding: 1.2rem 1.2rem;
 }
+.error-box {
+  background-color: #F8D7DA;
+  margin-bottom: 1rem;
+  box-shadow: 1px 1px 2px #222;
+  padding: 1.2rem 1.2rem;
+}
 
 /* = Tables Styles = */
+
 tr {
   vertical-align: middle;
 }
@@ -83,7 +89,7 @@ tr {
 
 /* == Forms == */
 
-.field_with_errors input{
+.field_with_errors input {
   border: 1px solid red;
 }
 .form-group {
@@ -98,7 +104,6 @@ tr {
 .form-check-label {
   margin-left: 10px;
 }
-
 
 /* == Contacts Page == */
 
