@@ -1,39 +1,41 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_menu_links
   before_action :authorize, only: [:index]
 
   def set_menu_links
     @menu_link = [{
-      link_name: "Главная",
+      link_name: 'Главная',
       link_path: root_path,
       link_class: 'home-class'
-    },{
-      link_name: "Мои qr коды",
+    }, {
+      link_name: 'Мои qr коды',
       link_path: qr_codes_path
-    },{
-      link_name: "Наши контакты",
+    }, {
+      link_name: 'Наши контакты',
       link_path: contacts_path
-    },{
-      link_name: "О нас",
+    }, {
+      link_name: 'О нас',
       link_path: about_path
     }]
 
     @users_link = []
     if current_user
       @users_link.push({
-        link_name: "Выход",
-        link_path: logout_path,
-        link_method: :delete
-      })
+                         link_name: 'Выход',
+                         link_path: logout_path,
+                         link_method: :delete
+                       })
     else
       @users_link.push({
-        link_name: "Регистрация",
-        link_path: new_user_path
-      })
+                         link_name: 'Регистрация',
+                         link_path: new_user_path
+                       })
       @users_link.push({
-        link_name: "Войти",
-        link_path: login_path
-      })
+                         link_name: 'Войти',
+                         link_path: login_path
+                       })
     end
   end
 
@@ -51,7 +53,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     return if current_user
-    redirect_to new_user_path, {alert: 'Пользователь не зарегестрирован'}
-  end
 
+    redirect_to new_user_path, { alert: 'Пользователь не зарегестрирован' }
+  end
 end

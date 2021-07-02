@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -24,10 +26,10 @@ module Rails2
       'X-Frame-Options' => ''
     }
     config.i18n.default_locale = :ru
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+    config.action_view.field_error_proc = proc do |html_tag, _instance|
       html_tag
-    }
+    end
     # File: config/application.rb
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
   end
 end

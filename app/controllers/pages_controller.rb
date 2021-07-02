@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
-  
   def contacts
     @contacts = [
       {
@@ -10,10 +11,9 @@ class PagesController < ApplicationController
         tel_label: 'tel: ',
         tel: '+375333062942',
         tel_link: 'tel:+375333062942'
-      }]
+      }
+    ]
   end
 
-  def about
-  end
-  
+  def about; end
 end
