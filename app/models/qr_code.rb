@@ -14,8 +14,6 @@ class QrCode < ApplicationRecord
   def generate_qr_code
     our_url = Rails.application.routes.url_helpers.qr_code_url(id)
     qrcode = RQRCode::QRCode.new(our_url)
-    z = @qr_color
-    # binding.pry
     png = qrcode.as_png(
       bit_depth: 1,
       border_modules: 4,

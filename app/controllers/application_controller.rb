@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_menu_links
-  before_action :authorize, only: [:index]
+  before_action :authorize, only: %i[index create]
 
   def set_menu_links
     @menu_link = [{
