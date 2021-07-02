@@ -12,10 +12,9 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-md-4">
 
     <%= form_with url: qr_codes_path, method: :post do |f| %>
-
+    <div class="offset-md-4 col-md-4">
       <div class="form-floating form-group">
         <%= f.text_field :name, { class: "form-control" } %>
         <%= f.label :name, "Название ссылки:" %>
@@ -25,11 +24,34 @@
         <%= f.text_field :url, { class: "form-control" } %>
         <%= f.label :url, "Адрес ссылки:" %>
       </div>
-      <div class="form-group justify-content-center">
-        <%= f.submit "Сгенерировать", { class: "btn btn-primary" }  %>
+    </div>
+    <div class="col-12 align-center">
+
+      <div class="title-small">Цвет заднего плана</div> 
+      <div class="btn-group btn-small" role="group" aria-label="Basic radio toggle button group">
+        <%= f.text_field :color_black, { class: "btn-check ", type: "radio", name: "btncolor", autocomplete: "off", value: "black", checked: true  } %>
+        <%= f.label :color_black, "Черный", { class: "btn btn-outline-primary color-bg-black" } %>
+        <%= f.text_field :color_red, { class: "btn-check", type: "radio", name: "btncolor", autocomplete: "off", value: "white" } %>
+        <%= f.label :color_red, "Белый", { class: "btn btn-outline-primary color-bg-white" } %>
+        <%= f.text_field :color_green, { class: "btn-check", type: "radio", name: "btncolor", autocomplete: "off", value: "SpringGreen" } %>
+        <%= f.label :color_green, "Зеленый", { class: "btn btn-outline-primary color-bg-springgreen" } %>
       </div>
-      
+      <div class="title-small">Цвет переднего плана</div>
+      <div class="btn-group btn-small" role="group" aria-label="Basic radio toggle button group">
+        <%= f.text_field :color_bg_white, { class: "btn-check", type: "radio", name: "btncolorbg", autocomplete: "off", value: "white", checked: true  } %>
+        <%= f.label :color_bg_white, "Белый", { class: "btn btn-outline-primary color-bg-white" } %>
+        <%= f.text_field :color_bg_red, { class: "btn-check", type: "radio", name: "btncolorbg", autocomplete: "off", value: "black" } %>
+        <%= f.label :color_bg_red, "Черный", { class: "btn btn-outline-primary color-bg-black" } %>
+        <%= f.text_field :color_bg_green, { class: "btn-check", type: "radio", name: "btncolorbg", autocomplete: "off", value: "Navy" } %>
+        <%= f.label :color_bg_green, "Синий", { class: "btn btn-outline-primary color-bg-navy text-white" } %>
+      </div>
+   </div>
+      <div class="form-group justify-content-center">
+        <%= f.submit "Сгенерировать", { class: "btn btn-accept btn-main" }  %>
+      </div>
+  
     <% end %>
+    
 
   </div>
 </div>

@@ -28,16 +28,41 @@ li {
 .main-bg {
   background-color: #DBDBDB;
 }
+.align-center {
+  text-align: center;
+}
+
+/* = Colors = */
+
+.text-white {
+  color: white;
+}
+.color-bg-black {
+  background-color: black;
+}
+.color-bg-white {
+  background-color: white;
+}
+.color-bg-springgreen {
+  background-color: SpringGreen;
+}
+.color-bg-navy	 {
+  background-color: Navy	;
+}
 
 /* = Bootstrap Btns Restyling = */
 
 .btn {
-  margin-right: 20px;
-  margin-bottom: 20px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+}
+.btn-main {
+  margin: 20px;
   color: #fff;
   border-radius: 14px;
   box-shadow: 2px 2px 4px #222;
 }
+
 .btn-reset {
   background-color: coral;
   border-color: chocolate;
@@ -48,21 +73,27 @@ li {
   border-color: darkorange;
   box-shadow: 2px 2px 2px #d2691e;
 }
-.btn-primary {
-    color: #fff;
-    background-color: #2AA9AD;
-    border-color: #2DB8BD;
+.btn-accept, .table .btn-primary  {
+  color: #fff;
+  background-color: #2AA9AD;
+  border-color: #2DB8BD;
 }
-.btn-primary:hover {
-    color: #fff;
-    background-color: #239094;
-    border-color: #0E5E61;
+.btn-accept:hover, .table .btn-primary:hover  {
+  color: #fff;
+  background-color: #239094;
+  border-color: #0E5E61;
 }
 .btn-close-position {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
+.btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+  color: #fff;
+  background-color: #2AA9AD;
+  border-color: #2DB8BD;
+}
+
 
 /* = Messages Styles = */
 
@@ -103,6 +134,15 @@ tr {
 }
 .form-check-label {
   margin-left: 10px;
+}
+
+.title-small {
+  margin-bottom: 10px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+}
+.btn-small {
+  margin-bottom: 10px;
 }
 
 /* == Contacts Page == */
