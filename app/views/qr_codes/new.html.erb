@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <div class="col-md-6">
+  <div class="col-lg-6">
     <div class="heading-wrapper text-description">
       <h1>Приветствуем на нашем сервисе!</h1>
       <div class="heading-description">Ниже можно вставить ссылку на статью или видеоролик.
@@ -13,8 +13,9 @@
 
 <div class="row justify-content-center">
 
-    <%= form_with url: qr_codes_path, method: :post do |f| %>
-    <div class="offset-md-4 col-md-4">
+  <%= form_with url: qr_codes_path, method: :post do |f| %>
+
+    <div class="offset-lg-4 col-lg-4">
       <div class="form-floating form-group">
         <%= f.text_field :name, { class: "form-control" } %>
         <%= f.label :name, "Название ссылки:" %>
@@ -24,7 +25,14 @@
         <%= f.text_field :url, { class: "form-control" } %>
         <%= f.label :url, "Адрес ссылки:" %>
       </div>
+
+      <div class="form-check form-switch switch-wrapper">
+        <%= f.text_field :remember_me, { class: "form-check-input", type: "checkbox", name: "remember", value: "true", checked: true  } %>
+        <%= f.label :remember_me, "Сохранить код для статистики*", { class: "form-check-label" } %>
+      </div>
+
     </div>
+
     <div class="col-12 align-center">
 
       <div class="title-small">Цвет заднего плана</div> 
@@ -45,13 +53,16 @@
         <%= f.text_field :color_bg_green, { class: "btn-check", type: "radio", name: "btncolorbg", autocomplete: "off", value: "Navy" } %>
         <%= f.label :color_bg_green, "Синий", { class: "btn btn-outline-primary color-bg-navy text-white" } %>
       </div>
-   </div>
-      <div class="form-group justify-content-center">
-        <%= f.submit "Сгенерировать", { class: "btn btn-accept btn-main" }  %>
-      </div>
-  
-    <% end %>
-    
+    </div>
 
+    <div class="form-group justify-content-center">
+      <%= f.submit "Сгенерировать", { class: "btn btn-accept btn-main" }  %>
+    </div>
+
+  <% end %>
+
+  <div class="col-8 align-center">
+    <p>* Регистрация даёт возможность сохранять статистику переходов по сгенерированным кодам. </p>
   </div>
+  
 </div>

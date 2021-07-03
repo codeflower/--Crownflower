@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       link_path: root_path,
       link_class: 'home-class'
     }, {
-      link_name: 'Мои qr коды',
+      link_name: 'QR коды',
       link_path: qr_codes_path
     }, {
       link_name: 'Наши контакты',
@@ -51,8 +51,16 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def authorize
-    return if current_user
-    redirect_to new_user_path, { alert: 'Пользователь не зарегестрирован' }
+  # def authorize
+  #   return if current_user
+  #   redirect_to new_user_path, { alert: 'Пользователь не зарегестрирован' }
+  # end
+
+  def unauthorize
+    if current_user || !params[:remember]
+      nil
+    else
+      redirect_to new_user_path, { alert: 'Нужно зарегестрироваться или войти' }
+    end
   end
 end

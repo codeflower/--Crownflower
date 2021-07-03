@@ -23,7 +23,7 @@ li {
   list-style: none;
 }
 .height-vh {
-  min-height: 61vh;
+  min-height: 58vh;
 }
 .main-bg {
   background-color: #DBDBDB;
@@ -62,7 +62,6 @@ li {
   border-radius: 14px;
   box-shadow: 2px 2px 4px #222;
 }
-
 .btn-reset {
   background-color: coral;
   border-color: chocolate;
@@ -72,6 +71,22 @@ li {
   background-color: coral;
   border-color: darkorange;
   box-shadow: 2px 2px 2px #d2691e;
+}
+.btn-primary {
+  background-color: #2AA9AD;
+  border-color: #2DB8BD;
+  border-radius: 14px;
+  box-shadow: 2px 2px 4px #222;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+}
+.btn-primary:hover {
+  background-color: #239094;
+  border-color: #0E5E61;
+  border-radius: 14px;
+  box-shadow: 2px 2px 4px #222;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
 }
 .btn-accept, .table .btn-primary  {
   color: #fff;
@@ -88,12 +103,20 @@ li {
   top: 5px;
   right: 5px;
 }
-.btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+.btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, 
+.btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
   color: #fff;
   background-color: #2AA9AD;
   border-color: #2DB8BD;
 }
 
+.form-switch .form-check-input {
+    width: 4em;
+}
+.form-check-input {
+    width: 1em;
+    height: 2em;
+}
 
 /* = Messages Styles = */
 
@@ -144,6 +167,27 @@ tr {
 .btn-small {
   margin-bottom: 10px;
 }
+.switch-wrapper {
+  display: inline-block;
+  margin-bottom: 27px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.switch-wrapper .form-check-input {
+  margin-right: 14px;
+}
+.switch-wrapper .form-check-input:checked {
+  background-color: #239094;
+  border-color: #0E5E61;
+}
+
+/* == Paginate == */
+
+.pagination li.page-item {
+  margin-right: 8px;
+}
+
 
 /* == Contacts Page == */
 
@@ -158,7 +202,7 @@ tr {
 }
 .contacts-list img {
   margin-right: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .contacts-list a {
   color: #0E5E61;

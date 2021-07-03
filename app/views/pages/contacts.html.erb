@@ -5,12 +5,14 @@
 </div>
 
 <div class="row justify-content-center ">
-  <ul class="col-md-6 contacts-list d-flex flex-column flex-md-row ">
+  <ul class="col-lg-8 contacts-list ">
   
     <% @contacts.each do |cont| %>
       <li>
-      <%= image_tag( cont[:email_ico] , { width: '100px' }) %><span><%= cont[:email_label] %></span><%= mail_to cont[:email] %><br> 
-      <%= image_tag( cont[:tel_ico] , { width: '100px' }) %><span><%= cont[:tel_label] %></span><%=  link_to cont[:tel], cont[:tel_link]  %>
+      <%= image_tag( cont[:email_ico] , { width: '80px' }) %><span><%= cont[:email_label] %></span><%= mail_to cont[:email] %>
+      </li>
+      <li>
+      <%= image_tag( cont[:tel_ico] , { width: '80px' }) %><span><%= cont[:tel_label] %></span><%=  link_to cont[:tel], cont[:tel_link]  %>
       </li>
     <% end %>
 
