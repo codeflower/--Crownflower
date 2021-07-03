@@ -2,7 +2,7 @@
 
 class QrCodesController < ApplicationController
   before_action :fetch_qr_code, only: %i[edit update destroy]
-  before_action :authorize, only: %i[index create]
+  # before_action :authorize, only: %i[index create]
 
   def new; end
 
@@ -14,13 +14,17 @@ class QrCodesController < ApplicationController
   end
 
   def index
-    if current_user.admin?
+    if current_user && current_user.admin?
       @title = 'Все'
       @qr_codes = QrCode.all.page(params[:page])
-    else
+    elsif current_user
       @title = 'Мои'
       @qr_codes = current_user.qr_codes.page(params[:page])
       #  @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
+    else
+      @qr_codes = QrCode.all.where({user_id: nil}).page(params[:page])
+      # @qr_code.page(params[:page])
+
     end
   end
 
@@ -33,7 +37,7 @@ class QrCodesController < ApplicationController
     qr_code.url = params[:url]
     qr_code.qr_color = @qr_color
     qr_code.qr_bg_color = @qr_bg_color
-    qr_code.user_id = current_user.id
+    qr_code.user_id = current_user.id if current_user
 
     if qr_code.save
       redirect_to qr_codes_path, { notice: 'Qr Code was successfully created' }

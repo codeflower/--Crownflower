@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_menu_links
-  before_action :authorize, only: %i[index create]
+  # before_action :authorize, only: %i[index create]
 
   def set_menu_links
     @menu_link = [{
@@ -53,7 +53,6 @@ class ApplicationController < ActionController::Base
 
   def authorize
     return if current_user
-
     redirect_to new_user_path, { alert: 'Пользователь не зарегестрирован' }
   end
 end
