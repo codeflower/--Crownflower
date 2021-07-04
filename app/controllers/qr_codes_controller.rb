@@ -17,14 +17,14 @@ class QrCodesController < ApplicationController
   def index
     if current_user&.admin?
       @title = 'Все'
-      @qr_codes = QrCode.all.page(params[:page])
+      @qr_codes = QrCode.all.order(created_at: :desc).page(params[:page])
     elsif current_user
       @title = 'Мои'
-      @qr_codes = current_user.qr_codes.page(params[:page])
+      @qr_codes = current_user.qr_codes.order(created_at: :desc).page(params[:page])
       #  @qr_codes = QrCode.all.where({user_id: current_user.id}).page(params[:page])
     else
       @title = ''
-      @qr_codes = QrCode.all.where({ user_id: @admin.id }).page(params[:page])
+      @qr_codes = QrCode.all.where({ user_id: @admin.id }).page(params[:page]).order(created_at: :desc).page(params[:page])
       # @qr_code.page(params[:page])
     end
   end

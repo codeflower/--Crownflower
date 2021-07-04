@@ -16,9 +16,15 @@ class QrCode < ApplicationRecord
     else
       our_url = self.url
     end
+    # our_url =
+    #   if self.account
+    #     Rails.application.routes.url_helpers.qr_code_url(id)
+    #   else
+    #     self.url
+    #   end
     color = self.qr_color
     bg_color = self.qr_bg_color
-    binding.pry
+
     qrcode = RQRCode::QRCode.new(our_url)
     png = qrcode.as_png(
       bit_depth: 1,
