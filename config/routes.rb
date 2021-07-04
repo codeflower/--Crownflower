@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :qr_codes
   resources :users
 
+  post '/users/:id', to: 'users#set_admin'
+
   get '/contacts', to: 'pages#contacts', as: :contacts
   get '/about', to: 'pages#about'
 
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :logout
 
   root 'qr_codes#new'
+
+
 
   # get '/qr_codes', to: 'qr_codes#index', as: :qr_codes
   # post '/qr_codes', to: 'qr_codes#create', as: :qr_codes_create

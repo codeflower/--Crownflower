@@ -12,7 +12,7 @@
           <tr>
             <th scope="col">Предпросмотр</th>
             <th scope="col">Имя</th>
-            <% if current_user && current_user.admin? %>
+            <% if current_user %>
             <th scope="col">Переходы</th>
             <th scope="col">Действия</th>
             <% end %>
@@ -24,12 +24,15 @@
           <tr>
             <td><%= link_to image_tag(qr_code.image), url_for(qr_code.image), {target: 'blank'} %></td>
             <td><%= link_to qr_code.name, url_for(qr_code.image), {target: 'blank'} %></td>
-            <% if current_user && current_user.admin? %>
-            <td><%= qr_code.scans %></td>
-            
-            <td><%= link_to "Редактировать", edit_qr_code_path(qr_code.id), class: 'btn btn-primary' %>
+            <% if current_user %>
 
-            <%= link_to "Удалить", qr_code_path(qr_code.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
+                <td><%= qr_code.scans   if  qr_code.account %></td>
+              
+              
+              
+              <td><%= link_to "Редактировать", edit_qr_code_path(qr_code.id), class: 'btn btn-primary' %>
+
+              <%= link_to "Удалить", qr_code_path(qr_code.id), class: 'btn btn-danger', method: :delete, data: { confirm_swal: "" } %></td>
             <% end %>
           </tr>
         <% end %>

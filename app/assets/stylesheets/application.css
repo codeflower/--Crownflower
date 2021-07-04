@@ -79,6 +79,7 @@ li {
   box-shadow: 2px 2px 4px #222;
   font-family: 'Jura', sans-serif;
   font-weight: 400;
+  margin: 10px;
 }
 .btn-primary:hover {
   background-color: #239094;
@@ -97,6 +98,23 @@ li {
   color: #fff;
   background-color: #239094;
   border-color: #0E5E61;
+}
+.btn-danger {
+  background-color: #E05B4C;
+  border-color: #F76454;
+  border-radius: 14px;
+  box-shadow: 2px 2px 4px #222;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+  margin: 10px;
+}
+.btn-danger:hover {
+  background-color: #94352B;
+  border-color: #E05B4C;
+  border-radius: 14px;
+  box-shadow: 2px 2px 4px #222;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
 }
 .btn-close-position {
   position: absolute;
@@ -209,5 +227,8 @@ tr {
   text-decoration: none;
 }
 
-
+/* == About Page == */
+.user-info li{
+  margin-bottom: 10px;
+}
 

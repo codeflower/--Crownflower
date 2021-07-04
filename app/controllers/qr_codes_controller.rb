@@ -30,15 +30,12 @@ class QrCodesController < ApplicationController
   end
 
   def create
-    @qr_color = params[:btncolor]
-    @qr_bg_color = params[:btncolorbg]
-    @scan_allow = params[:remember]
-
     qr_code = QrCode.new
     qr_code.name = params[:name]
     qr_code.url = params[:url]
-    qr_code.qr_color = @qr_color
-    qr_code.qr_bg_color = @qr_bg_color
+    qr_code.qr_color = params[:btncolor]
+    qr_code.qr_bg_color = params[:btncolorbg]
+    qr_code.account = params[:remember]
     qr_code.user_id = if current_user
                         current_user.id
                       else

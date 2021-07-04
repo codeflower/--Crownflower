@@ -1,0 +1,25 @@
+<div class="row justify-content-center ">
+  <div class="heading-wrapper">
+    <h1>Информфция о пользователе</h1>
+  </div>
+</div>
+<ul class="user-info">
+<li>Имя пользователя: <%= @user.name %></li>
+<li>Email пользователя: <%= @user.email %></li>
+<li>Администратор: 
+  <% if @user.admin?  %>
+    Да
+  <% else  %>
+    Нет
+  <% end  %>
+    </li>
+</ul>
+  <% if @user.admin?  %>
+    Разжаловать в Юзеры?
+      <%= link_to " Да!", user_path(@user.id), class: 'btn btn-danger', method: :post %>
+  <% else  %>
+    Удостоить чести стать админом?
+    
+      <%= link_to "Дв!", user_path(@user.id), class: 'btn btn-primary', method: :post %>
+  <% end  %>
+

@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
 
   def unauthorize
     if current_user || !params[:remember]
-      nil
+      return
     else
       redirect_to new_user_path, { alert: 'Нужно зарегестрироваться или войти' }
     end

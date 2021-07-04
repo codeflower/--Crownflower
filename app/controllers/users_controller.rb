@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :fetch_user, only: %i[edit update destroy]
+  before_action :fetch_user, only: %i[edit update destroy show set_admin]
   include Autologin
 
   def new
@@ -36,6 +36,11 @@ class UsersController < ApplicationController
     else
       redirect_to edit_user_path, { alert: 'Пользователь не был обновлен' }
     end
+  end
+
+  def set_admin
+    @user.toggle!(:admin)
+    redirect_to user_path(@user.id), { notice: 'Статус пользователя обновлен' }
   end
 
   def destroy
