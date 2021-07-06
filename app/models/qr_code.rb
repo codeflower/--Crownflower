@@ -10,18 +10,12 @@ class QrCode < ApplicationRecord
   has_one_attached :image
 
   def generate_qr_code
-  
-    if self.account
-      our_url = Rails.application.routes.url_helpers.qr_code_url(id)
-    else
-      our_url = self.url
-    end
-    # our_url =
-    #   if self.account
-    #     Rails.application.routes.url_helpers.qr_code_url(id)
-    #   else
-    #     self.url
-    #   end
+    our_url = 
+      if self.account
+        Rails.application.routes.url_helpers.qr_code_url(id)
+      else
+        self.url
+      end
     color = self.qr_color
     bg_color = self.qr_bg_color
 
